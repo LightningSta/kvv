@@ -1,0 +1,15 @@
+name: main
+on: push
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v4
+      - name: installDep
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '22'
+      - name: run tests
+        run: mvn test
