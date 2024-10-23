@@ -9,7 +9,7 @@ jobs:
       - name: installDep
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
+          distribution: 'liberica' # See 'Supported distributions' for available options
           java-version: '22'
       - name: run tests
         run: mvn test
