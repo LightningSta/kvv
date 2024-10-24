@@ -9,7 +9,29 @@ jobs:
       - name: installDep
         uses: actions/setup-java@v4
         with:
-          distribution: 'liberica' # See 'Supported distributions' for available options
+          distribution: 'liberica'
+          java-version: '22'
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: installDep
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'liberica'
           java-version: '22'
       - name: run tests
         run: mvn test
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: user/app:latest
