@@ -46,9 +46,9 @@ jobs:
         with:
           namespace: default
           manifests: |
-            k8s/kv-pod.yaml
-            k8s/kv-service.yaml
-            k8s/postgres-cm1-configmap.yaml
-            k8s/postgres-data-persistentvolumeclaim.yaml
-            k8s/postgres-deployment.yaml
-            k8s/postgres-service.yaml
+            /k8s/kv-pod.yaml
+            /k8s/kv-service.yaml
+            /k8s/postgres-cm1-configmap.yaml
+            /k8s/postgres-data-persistentvolumeclaim.yaml
+            /k8s/postgres-deployment.yaml
+            /k8s/postgres-service.yaml
