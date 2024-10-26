@@ -41,6 +41,9 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
+      - name: Check Minikube
+        run: |
+          minikube version
       - name: Log in to Minikube
         run: |
           minikube start
