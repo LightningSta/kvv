@@ -41,9 +41,6 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-      - name: Kubectl Version
-        run: |
-          kubectl version
       - name: Check Minikube
         run: |
           minikube version
