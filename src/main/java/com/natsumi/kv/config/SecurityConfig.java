@@ -44,11 +44,11 @@ public class SecurityConfig {
                 .csrf((csrf) -> csrf
                         .ignoringRequestMatchers("/registration","/login","/findTg","/")
                 )
-                .formLogin(form ->
-                        form.loginPage("/login")
-                                .defaultSuccessUrl("/home",true)
-                                .failureForwardUrl("/login?error=true")
-                                .permitAll()
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home", true)
+                        .failureUrl("/login?error=true")
+                        .permitAll()
                 )
                 .logout((logout) -> logout.permitAll())
                 .sessionManagement(session -> session

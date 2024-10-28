@@ -18,9 +18,13 @@ public class UsersDetailsService implements org.springframework.security.core.us
         if (username == null) {
             throw new UsernameNotFoundException("username is null");
         }else{
-            UsersDetails details = new UsersDetails(usersRepository.getUserBylogin(username));
-            System.out.println(details.getPassword());
-            return details;
+            try {
+                UsersDetails details = new UsersDetails(usersRepository.getUserBylogin(username));
+                System.out.println(details.getPassword());
+                return details;
+            }catch (Exception e){
+                throw new UsernameNotFoundException(e.getMessage());
+            }
         }
     }
 }
